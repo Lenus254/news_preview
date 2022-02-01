@@ -1,6 +1,7 @@
 import urllib.request,json
 from .sources import Source
 from .articles import Articles
+import requests
 
 # Getting api key
 api_key = None
@@ -128,3 +129,16 @@ def get_headlines():
             get_headlines_results = process_articles_results(get_headlines_list)
 
     return get_headlines_results
+def display_source(name):
+    get_articles = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=81e26290ed0842708456e1e956750770'.format(name)
+    with urllib.request.urlopen(get_articles) as url:
+        get_headlines_data = url.read()
+        get_headlines_response = json.loads(get_headlines_data)
+
+    articles_source_results = None
+
+    if get_headlines_response['articles']:
+        news_res = get_headlines_response['articles']
+        articles_source_results = process_articles_results(news_res)
+
+    return articles_source_results

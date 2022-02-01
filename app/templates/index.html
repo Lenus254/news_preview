@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>news api</title>
-</head>
-<body>
- {% for source in sources %}
+{% extends 'base.html'%}
 
-<button><a href="{{source.url}}">{{source.name}}</a></button>
+{%block content%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            {% for source in sources %}
+
+<button class="btn btn-danger"><a href="{{source.url}}">{{source.name}}</a></button>
 
     {% endfor %}
-</body>
-</html>
+        </div>
+        <div class="col-md-9">
+            <h1 class="text-center">NEWS ARTICLES</h1>
+            {% for source in results %}
+
+<button class="btn btn-danger"><a href="{{source.url}}">{{source.title}}</a></button>
+
+    {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+    {%endblock%}

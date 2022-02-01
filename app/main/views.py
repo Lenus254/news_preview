@@ -1,6 +1,6 @@
 from . import main
 from flask import render_template, request, redirect, url_for
-from ..requests import get_source, article_source, get_category, get_headlines
+from ..requests import get_source, article_source, get_category, get_headlines,display_source
 
 
 # our views
@@ -11,7 +11,9 @@ def index():
     '''
     source = get_source()
     # headlines = get_headlines()
-    return render_template('index.html', sources=source)  # , headlines = headlines
+    bbc=display_source('bbc-news')
+
+    return render_template('index.html', sources=source, results=bbc)  # , headlines = headlines
 
 
 @main.route('/article/<id>')
