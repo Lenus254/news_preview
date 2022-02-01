@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>news api</title>
+</head>
+<body>
+ {% for art in articles %}
+
+
+        <img src="{{ art.urlToImage }}" alt="">
+    <h2>{{ art.title }}</h2>
+    <h3>{{ art.description[:100] }}...</h3>
+<p>{{ art.publishedAt}}</p>
+
+{%endfor%}
+
+</body>
+</html>

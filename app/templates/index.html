@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>news api</title>
+</head>
+<body>
+ {% for source in sources %}
+
+<button><a href="{{source.url}}">{{source.name}}</a></button>
+
+    {% endfor %}
+</body>
+</html>
