@@ -94,41 +94,7 @@ def process_articles_results(news):
 
     return article_source_results
 
-def get_category(cat_name):
-    '''
-    function that gets the response to the category json
-    '''
-    get_category_url = cat_url.format(cat_name,api_key)
-    print(get_category_url)
-    with urllib.request.urlopen(get_category_url) as url:
-        get_category_data = url.read()
-        get_cartegory_response = json.loads(get_category_data)
 
-        get_cartegory_results = None
-
-        if get_cartegory_response['articles']:
-            get_cartegory_list = get_cartegory_response['articles']
-            get_cartegory_results = process_articles_results(get_cartegory_list)
-
-    return get_cartegory_results
-
-def get_headlines():
-    '''
-    function that gets the response to the category json
-    '''
-    get_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(api_key)
-    print(get_headlines_url)
-    with urllib.request.urlopen(get_headlines_url) as url:
-        get_headlines_data = url.read()
-        get_headlines_response = json.loads(get_headlines_data)
-
-        get_headlines_results = None
-
-        if get_headlines_response['articles']:
-            get_headlines_list = get_headlines_response['articles']
-            get_headlines_results = process_articles_results(get_headlines_list)
-
-    return get_headlines_results
 def display_source(name):
     get_articles = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=81e26290ed0842708456e1e956750770'.format(name)
     with urllib.request.urlopen(get_articles) as url:
