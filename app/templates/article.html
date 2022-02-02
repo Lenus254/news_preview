@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>news api</title>
-</head>
-<body>
+{% extends 'base.html'%}
+
+{%block content%}
  {% for art in articles %}
 
 
@@ -14,6 +10,5 @@
 <p>{{ art.publishedAt}}</p>
 
 {%endfor%}
+ {%endblock%}
 
-</body>
-</html>
