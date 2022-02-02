@@ -12,11 +12,20 @@
         </div>
         <div class="col-md-9">
             <h1 class="text-center">NEWS ARTICLES</h1>
+            <div class="card-columns">
             {% for source in results %}
+                <div class="card">
+                    <img class="card" src="{{source.urlToImage}}" width="300px" height="200px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{source.title}}</h5>
+                  <p class="card-text">{{source.description}}</p>
+                        <button ><a href="{{source.url}}">{{source.title}}</a></button>
+                    </div>
 
-<button class="btn btn-danger"><a href="{{source.url}}">{{source.title}}</a></button>
 
+                </div>
     {% endfor %}
+            </div>
         </div>
 
 

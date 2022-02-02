@@ -11,9 +11,9 @@ def index():
     '''
     source = get_source()
     # headlines = get_headlines()
-    bbc=display_source('bbc-news')
+    cnn=display_source('cnn')
 
-    return render_template('index.html', sources=source, results=bbc)  # , headlines = headlines
+    return render_template('index.html', sources=source, results=cnn)  # , headlines = headlines
 
 
 @main.route('/article/<id>')
