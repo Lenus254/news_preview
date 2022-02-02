@@ -4,18 +4,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
+            <div class="card-column">
+                <h2>NEWS SOURCES</h2>
+                <div class="list-group scrolly">
+                <ul>
             {% for source in sources %}
 
-<button class="btn btn-danger"><a href="{{source.url}}">{{source.name}}</a></button>
+<!--                <button class="btn btn-danger"><a href="{{source.url}}">{{source.name}}</a></button>-->
+                 <a href="/article/{{source.url}}">
+                  <p class="text-capitalize text-muted">{{source.name}}</p>
+                 </a>
+                    </ul>
 
     {% endfor %}
+                </div>
+            </div>
         </div>
         <div class="col-md-9">
             <h1 class="text-center">NEWS ARTICLES</h1>
             <div class="card-columns">
             {% for source in results %}
                 <div class="card">
-                    <img class="card" src="{{source.urlToImage}}" width="300px" height="200px">
+                    <img class="card" src="{{source.urlToImage}}">
                     <div class="card-body">
                         <h5 class="card-title">{{source.title}}</h5>
                   <p class="card-text">{{source.description}}</p>
@@ -27,7 +37,6 @@
     {% endfor %}
             </div>
         </div>
-
 
     </div>
 </div>
